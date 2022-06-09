@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Plattformer</title>
+        <link rel="stylesheet" href="game.css"/>
+        <script src="js/util.js"></script>
+        <script src="assets/js/background.js"></script>
+        <script src="assets/js/foreground.js"></script>
+        <script src="assets/js/player.js"></script>
+        <script src="assets/js/inputhandler.js"></script>
+        <script src="assets/js/view.js"></script>
+        <script src="assets/js/pause.js"></script>
+        <script src="assets/js/game.js"></script>
+    </head>
+    <body>
+        <canvas id="gamearea"></canvas>
+        <script>
+            window.addEventListener('load', function() {
+                const canvas = document.getElementById('gamearea');
+                const ctx = canvas.getContext('2d');
+                canvas.width=800;
+                canvas.height=500;
+
+                const game = new Game(canvas,"000-000-000");
+                game.init().then(r =>{
+                    function animate(timestamp){
+                        ctx.clearRect(0,0,canvas.width, canvas.height);
+                        game.update();
+                        game.draw(ctx);
+                        requestAnimationFrame(animate);
+                    }
+                    animate();
+                });
+            });
+        </script>
+    </body>
+</html>
