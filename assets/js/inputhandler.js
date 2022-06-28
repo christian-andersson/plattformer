@@ -1,4 +1,4 @@
-class InputHandler {
+export default class InputHandler {
     constructor(){
         this.keys = [];
         window.addEventListener('keydown', e=> {

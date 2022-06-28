@@ -1,7 +1,9 @@
+import {loadImage} from "./util.js"
+
 /**
  * this is the background class it handles the scrolling background
  */
- class Foreground {
+ export default class Foreground {
     constructor(game){
         this.game=game;
         this.layers = [];

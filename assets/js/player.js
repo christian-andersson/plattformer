@@ -1,4 +1,6 @@
-class Player {
+import {loadImage, flip} from './util.js';
+
+export default class Player {
     constructor(game){
         this.game = game;
         this.width=32;

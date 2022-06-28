@@ -1,4 +1,12 @@
-class Game{
+import View from './view.js'
+import InputHandler from './inputhandler.js'
+import Background from './background.js'
+import Foreground from './foreground.js'
+import Player from './player.js'
+import Pause from './pause.js'
+import {loadMap, loadTheme} from './util.js'
+
+export default class Game{
     constructor(canvas, mapId) {
         this.width=62*64;
         this.height=10*64;

@@ -3,10 +3,10 @@ async function loadAssets(asset){
     return await response.json();
 }
 
-async function loadTheme(theme){
+export async function loadTheme(theme){
     return await loadAssets("assets/themes/"+theme+".json");
 }
-async function loadMap(map){
+export async function loadMap(map){
     return await loadAssets("assets/maps/"+map+".json");
 }
 
@@ -16,7 +16,7 @@ async function loadJavascriot(script){
     document.head.appendChild(js);
 }
 
-async function loadImage(image, index, callback){
+export async function loadImage(image, index, callback){
     var img = new Image();
     img.onload = function (){
         callback(img, index);
@@ -25,7 +25,7 @@ async function loadImage(image, index, callback){
     return img;
 }
 
-function flip(src,target){
+export function flip(src,target){
     target = new Image();
     var c = document.createElement('canvas');
     c.width = src.width;

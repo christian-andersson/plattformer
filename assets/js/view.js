@@ -1,4 +1,4 @@
-class View {
+export default class View {
     constructor(game, viewWidth, viewHeight){
         this.width=viewWidth;
         this.height=viewHeight;

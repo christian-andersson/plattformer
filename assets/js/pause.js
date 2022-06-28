@@ -1,4 +1,4 @@
-class Pause {
+export default class Pause {
     constructor(game){
         this.game=game;
     }
