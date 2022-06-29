@@ -37,10 +37,10 @@ export default class Game{
         //this.forgroundLayer = new Foreground(this.view.width,this.view.height, this.assets);
     }
     
-    update(){
+    update(timeDiff){
         this.pauseLayer.update(this.input);
         if(!this.paused){
-            this.player.update(this.input);
+            this.player.update(this.input, timeDiff);
             this.view.update(this.player);
         }
     }

@@ -1,13 +1,37 @@
-async function loadAssets(asset){
-    var response = await fetch(asset);
-    return await response.json();
+async function loadJson(asset, visitedAssets){
+    if(visitedAssets === undefined) {
+        visitedAssets = new Set()
+    }
+    if(!visitedAssets.has(asset)){
+        visitedAssets.add(asset);
+        var response = await fetch(asset);
+        let json = await response.json();
+        await loadIncludes(json,visitedAssets);
+        return json;
+    }
+
+    return "";
+}
+
+async function loadIncludes(obj, visitedAssets){
+    for (var key in obj) {
+        //console.log("loadIncludes: "+key+": "+);
+        if (obj.hasOwnProperty(key)) {
+            if(typeof obj[key] === 'string' && obj[key].startsWith('_include_:')){
+                let asset =  obj[key].substring(10);
+                obj[key] = await loadJson(asset, visitedAssets);
+            } else if (typeof obj[key] === 'object'){
+                await loadIncludes(obj[key], visitedAssets);
+            }
+        }
+    }
 }
 
 export async function loadTheme(theme){
-    return await loadAssets("assets/themes/"+theme+".json");
+    return await loadJson("assets/themes/"+theme+".json");
 }
 export async function loadMap(map){
-    return await loadAssets("assets/maps/"+map+".json");
+    return await loadJson("assets/maps/"+map+".json");
 }
 
 async function loadJavascriot(script){
