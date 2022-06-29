@@ -1,8 +1,8 @@
 {
-    "settings" :{
-        "theme":"dawn2"
+    "theme":"_include_:/assets/themes/dawn2.json",
+    "settings": {
+        "gravity":1
     },
-    "gravity":1,
     "map": [
         "                                                            ",
         "                                                            ",

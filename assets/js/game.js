@@ -13,19 +13,13 @@ export default class Game{
         this.mapId = mapId;
         this.view = new View(this, canvas.width, canvas.height);
         this.input = new InputHandler();
-        this.gravity=1;
         this.paused=false;
         this.canvas = canvas;
     }
 
     async init() {
         this.map = await loadMap(this.mapId);
-        if(this.map.hasOwnProperty('settings') && this.map.settings.hasOwnProperty('theme')){
-            this.themeId = this.map.settings.theme;
-        } else {
-            this.themeId = "dawn2";
-        }
-        this.theme = await loadTheme(this.themeId);
+        this.theme = this.map.theme;
         this.backgroundLayer = new Background(this);
         this.foregroundLayer = new Foreground(this);
         this.player = new Player(this);

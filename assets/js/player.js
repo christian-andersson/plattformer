@@ -52,7 +52,7 @@ export default class Player {
         }
         
         if(!this.onGround){
-            this.speed.vertical-=this.game.map.gravity;
+            this.speed.vertical-=this.game.map.settings.gravity;
         } else {
             this.speed.vertical=0;
         }
