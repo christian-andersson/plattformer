@@ -15,7 +15,6 @@ async function loadJson(asset, visitedAssets){
 
 async function loadIncludes(obj, visitedAssets){
     for (var key in obj) {
-        //console.log("loadIncludes: "+key+": "+);
         if (obj.hasOwnProperty(key)) {
             if(typeof obj[key] === 'string' && obj[key].startsWith('_include_:')){
                 let asset =  obj[key].substring(10);

@@ -1,70 +1,77 @@
 {
     "image":"/assets/themes/dawn2/player/boy.png",
+    "fps":20,
     "states": {
         "idle":{
-            "count":21,
-            "height":64,
-            "width":32,
-            "yOffset":0,
+            "image":{
+                "count":21,
+                "height":64,
+                "width":32,
+                "yOffset":0,
+                "fps":20
+            },
             "speed": {
-                "image":1,
                 "horizontal":0
             }
         },
         "walk":{
-            "count":21,
-            "height":64,
-            "width":37,
-            "yOffset":64,
+            "image":{
+                "count":21,
+                "height":64,
+                "width":37,
+                "yOffset":64,
+                "fps":10
+            },
             "speed": {
-                "image":0.2,
                 "horizontal":1
             }
         },
         "run":{
-            "count":21,
-            "height":64,
-            "width":37,
-            "yOffset":64,
+            "image": {
+                "count":21,
+                "height":64,
+                "width":37,
+                "yOffset":64,
+                "fps":30
+            },
             "speed": {
-                "image":1,
-                "horizontal":5
+                "horizontal":3
             }
         },
         "jump":{
-            "count":10,
-            "height":64,
-            "width":36,
-            "yOffset":192,
-            "speed": {
-                "image":1
+            "image": {
+                "count":10,
+                "height":64,
+                "width":36,
+                "yOffset":192,
+                "fps":20
             }
         },
         "fall":{
-            "count":11,
-            "height":64,
-            "width":43,
-            "yOffset":128,
-            "speed": {
-                "image":1
+            "imge":{
+                "count":11,
+                "height":64,
+                "width":43,
+                "yOffset":128,
+                "fps":20
             }
         },
         "die":{
-            "count":31,
-            "height":64,
-            "width":54,
-            "yOffset":254,
-            "speed": {
-                "image":1
+            "image": {
+                "count":31,
+                "height":64,
+                "width":54,
+                "yOffset":254,
+                "fps":20
             }
         },
         "hit":{
-            "count":13,
-            "height":64,
-            "width":59,
-            "yOffset":316,
-            "speed": {
-                "image":1
+            "image": {
+                "count":13,
+                "height":64,
+                "width":59,
+                "yOffset":316,
+                "fps":20
             }
         }
 

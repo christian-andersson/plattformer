@@ -9,8 +9,8 @@ export default class View {
 
     update(player){
         //center view on player
-        this.x=player.x+player.width/2-this.width/2;
-        this.y=player.y+player.height/2-this.height/2;
+        this.x=player.x+player.state.current.image.width/2-this.width/2;
+        this.y=player.y+player.state.current.image.height/2-this.height/2;
 
         //make sure that the view does not go outside game boundrary
         this.x= Math.min(Math.max(this.x,0),this.game.width-this.width) ;
