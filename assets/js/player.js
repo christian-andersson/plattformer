@@ -35,27 +35,24 @@ export default class Player {
             }
         }
 
-        if((typeof this.state.current.speed !== "undefined") && (typeof this.state.current.speed.horizontal !== "undefined")){
-            this.speed.horizontal=this.state.current.speed.horizontal;
-        } else {
-            this.speed.horizontal=0;
-        }
+        this.speed.horizontal= this.state.current.speed?.horizontal ?? 0;
 
         if(input.keys.indexOf('ArrowUp')>-1 || !this.onGround){
             this.state.current=this.state.jump
             if(this.onGround) {
-                this.speed.vertical=15;
+                this.speed.vertical=(this.state.current.speed?.vertical ?? 3)*3;
                 this.onGround=false;
             }
         } 
         
         if(!this.onGround){
-            this.speed.vertical-=this.game.map.settings.gravity;
+            this.speed.vertical-=(this.game.map.settings?.gravity ?? 9.82)*timeDiff/1000*2;
         } else {
             this.speed.vertical=0;
         }
-        this.x+=this.direction*this.speed.horizontal;
-        this.y+=this.speed.vertical;
+        this.x+=this.direction*this.speed.horizontal*timeDiff/1000*this.game.meterPixel;
+        this.y+=this.speed.vertical*timeDiff/1000*this.game.meterPixel;
+
 
         //Keep player within game Area
         this.x= Math.min(Math.max(this.x,0),this.game.width-this.state.current.image.width);

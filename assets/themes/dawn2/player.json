@@ -23,7 +23,7 @@
                 "fps":10
             },
             "speed": {
-                "horizontal":1
+                "horizontal":0.5
             }
         },
         "run":{
@@ -32,7 +32,7 @@
                 "height":64,
                 "width":37,
                 "yOffset":64,
-                "fps":30
+                "fps":40
             },
             "speed": {
                 "horizontal":3
@@ -45,6 +45,9 @@
                 "width":36,
                 "yOffset":192,
                 "fps":20
+            },
+            "speed": {
+               "vertical":2
             }
         },
         "fall":{

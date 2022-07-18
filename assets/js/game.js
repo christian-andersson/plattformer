@@ -24,11 +24,8 @@ export default class Game{
         this.foregroundLayer = new Foreground(this);
         this.player = new Player(this);
         this.pauseLayer = new Pause(this);
-        if(this.theme.hasOwnProperty('background') && this.theme.background.hasOwnProperty('color')){
-            this.canvas.style.backgroundColor=this.theme.background.color;
-        }
-        
-        //this.forgroundLayer = new Foreground(this.view.width,this.view.height, this.assets);
+        this.canvas.style.backgroundColor=this.theme.background?.color ?? "black";
+        this.meterPixel=this.map?.settings?.meterPixel??32;
     }
     
     update(timeDiff){
